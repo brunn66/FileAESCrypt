@@ -3,3 +3,6 @@
 #
 # Target Platform: Win32 (MMX, SSE, i.e. P3)
 #
+# Dependencies: (Possibly Incomplete)
+# -CryptoPP (5.6.2 at present)
+# -BasicCryptoWrap (Michael R. Rich)
