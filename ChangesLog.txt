@@ -1,3 +1,9 @@
+17 June 2015
+   released FileAESCrypt (Win32) 0.9.103b (Beta Build 15)
+
+     Change log:
+        -Cleaned: Comments
+
 10 June 2015
    released FileAESCrypt (Win32) 0.9.95b (Beta Build 14)
 

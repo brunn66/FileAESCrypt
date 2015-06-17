@@ -17,11 +17,14 @@ using namespace std;
 void ShowAbout () {
     // Print Version Info
     cout << "========================================================================\n";
-    cout << "FileAESCrypt Win32 " << AutoVersion::FULLVERSION_STRING<< " " << AutoVersion::STATUS<< " Build " << AutoVersion::BUILD<< " (" << AutoVersion::YEAR<< "-" << AutoVersion::MONTH<< "-" << AutoVersion::DATE<< ")" << "\n";
+    cout << "FileAESCrypt Win32 " << AutoVersion::FULLVERSION_STRING<< " " << AutoVersion::STATUS<< " Build " <<
+    AutoVersion::BUILD<< " (" << AutoVersion::YEAR<< "-" << AutoVersion::MONTH<< "-" << AutoVersion::DATE<< ")" << "\n";
     cout << "Deleted." << endl;
 
     // Print License info
-    cout <<"========================================================================\nThis program utilizes the following libraries:\n\n   --- Crypto++ 5.62 (Static) - Copyright (c) 1995-2013 by Wei Dai\n   --- BasicCryptoPPWrap (Static) - By Michael R. Rich, 2009\n========================================================================"<<
+    cout <<"========================================================================\n" <<
+    "This program utilizes the following libraries:\n\n   --- Crypto++ 5.62 (Static) - Copyright (c) 1995-2013 by Wei Dai\n"<<
+    "   --- BasicCryptoPPWrap (Static) - By Michael R. Rich, 2009\n========================================================================"<<
     endl<<endl;
 }
 
@@ -40,13 +43,22 @@ int main (int argc, char * const argv[]) {
 
 
     string ThisProgramFilename = argv[0];
-    string UsageNote = "\nUsage:\nEncode file: " + ThisProgramFilename + " -e [inputfile] [password] [IVstring] [outputfile]\nDecode file: " + ThisProgramFilename + " -d [inputfile] [password] [IVstring] [outputfile]\n\nShow Help:   " + ThisProgramFilename + " -h\nShow Version Info:   " + ThisProgramFilename + " --version OR --about\n";
+    string UsageNote = "\nUsage:\nEncode file: " + ThisProgramFilename + " -e [inputfile] [password] [IVstring] [outputfile]\nDecode file: " +
+    ThisProgramFilename + " -d [inputfile] [password] [IVstring] [outputfile]\n\nShow Help:   " + ThisProgramFilename + " -h\n"+
+    " Show Version Info:   " + ThisProgramFilename + " --version OR --about\n";
     string NoModeArg = "Syntax Error: No Mode Set\n" + UsageNote;
     string NoInputFile = "Syntax Error: No Input File Specified\n" + UsageNote;
 
     string NoPwd ="Syntax Error: No Password Specified\n" + UsageNote;
     string NoIvString = "Syntax Error: No iv-string specified" + UsageNote;
-    string HelpText ="HELP:\n" + UsageNote + "\nEncode File: " + ThisProgramFilename + " -ef [inputfile] [password] [IVstring] (This mode also encrypt the filename)\nDecode File: " + ThisProgramFilename + " -df [inputfile] [password] [IVstring] (This mode is for using with -df)\nEncode-H-V File: " + ThisProgramFilename + " -ehv [inputfile] [password] [IVstring] [outputfile]\nEncode-H-V (F&F) File: " + ThisProgramFilename + " -ehvf [inputfile] [password] [IVstring]\nNotes:  This function first encodes the supplied file as with the -e option and when finished, it also decodes the encrypted file and compares the hashes (SHA-256) from the original file and the recovered (decoded) file. If they match, the decoded file will be deleted. If the DONT match, only the original file will be kept.";
+    string HelpText ="HELP:\n" + UsageNote + "\nEncode File: " + ThisProgramFilename +
+    " -ef [inputfile] [password] [IVstring] (This mode also encrypt the filename)\nDecode File: " +
+    ThisProgramFilename + " -df [inputfile] [password] [IVstring] (This mode is for using with -df)\nEncode-H-V File: " +
+    ThisProgramFilename + " -ehv [inputfile] [password] [IVstring] [outputfile]\nEncode-H-V (F&F) File: " +
+    ThisProgramFilename + " -ehvf [inputfile] [password] [IVstring]\n"+
+    "Notes:  This function first encodes the supplied file as with the -e option and when finished, it also decodes the encrypted file"+
+    "and compares the hashes (SHA-256) from the original file and the recovered (decoded) file."+
+    "If they match, the decoded file will be deleted. If the DONT match, only the original file will be kept.";
 
 
 
@@ -177,9 +189,8 @@ int main (int argc, char * const argv[]) {
     bool err;
 	string errMsg;
 
-	// Now let's use the "MR" branded encryption and decryption.  This just stores the iv in the encrypted string, so we don't have to manage it
-	// if you lose the iv, it's just like losing the key!  "MR" methods generate a random, meaningless iv that is worthless without the key
-	// First lets generate a key from a plain text password
+	/** MR test below **/
+
 
 	// string key2 = BasicCryptoPPWrap::BitGen(256); // For use with random pwd (256bit)
 	// string key2 = BasicCryptoPPWrap::hashSHA256("This is my password"); // For Use With manual pwd, hashed to 256bit
@@ -189,21 +200,12 @@ int main (int argc, char * const argv[]) {
     string key2 = BasicCryptoPPWrap::hashSHA256(UserPwd); //Hash userpwd to key2
     cout << "Using Password: " << UserPwd << endl;
     cout << "Using IV      : " << Iv1 << endl;
+
     // cout << "Password Hash: " << BasicCryptoPPWrap::HexEncode(BasicCryptoPPWrap::hashSHA256(UserPwd)) << endl;
 
 
 
-	// Now let's try files!
-	// We'll skip the generic encryption method and just use MR.  MR stores the iv as the first 16 bytes of the file.
 
-	// Generate a file
-	/* ofstream recipe("SecretSteakRecipe.txt"); // file for output
-	recipe << "text\n";
-	recipe << "mertext\n";
-	recipe.close(); // close ofstream file*/
-
-	// Now encrypt it with the MR methods
-	// First open the infile
 
     //ENCRYPTION START
 
@@ -254,12 +256,11 @@ int main (int argc, char * const argv[]) {
 
 
 
-	ifstream infile(InputFilename.c_str(), ios::binary); // always open your files in binary mode!
+	ifstream infile(InputFilename.c_str(), ios::binary);
 
-	// Now the outfile, this can be any outstream, but we'll save to disk first
 	ofstream outfile(EncOutputFilename.c_str(), ios::binary);
 
-	// encrypt it!
+
 	BasicCryptoPPWrap::EncryptFileAES(infile, outfile, key2, Iv2,  err, errMsg);
 	if (err) {
 		cout << errMsg << "\n";
@@ -307,12 +308,12 @@ int main (int argc, char * const argv[]) {
         return -1;
     }
 
-	// Now we'll decrypt, but do it to memory so we leave no trace!
+
 	cout << "Decrypting file: " << InputFilename << " to " << DecOutputFilename << endl;
 
 	stringstream outBuffer;
 	ifstream encfile(InputFilename.c_str(), ios::binary);
-	// infile.open(InputFilename.c_str(), ios::binary); // BACKUP Open file for input
+	// infile.open(InputFilename.c_str(), ios::binary); //
 
 	// Decrypt it!
 	BasicCryptoPPWrap::DecryptFileAES(encfile, outBuffer, key2, Iv2,  err, errMsg);
@@ -321,11 +322,11 @@ int main (int argc, char * const argv[]) {
 		return -1;
 	}
 
-	// close and delete the encrypted file (you don't want me leaving files all over your hard drive do you?)
-	encfile.close();
-	// remove("SuperSecretSteakRecipe.crypt");
 
-	// Now look at our buffer
+	encfile.close();
+
+
+	// buffer
 
 	ofstream resultatet(DecOutputFilename.c_str(), ios::binary);
 
@@ -370,9 +371,9 @@ int main (int argc, char * const argv[]) {
         string TempFile = OutputFilename + ".tmp";
     cout << "Encrypting file: " << InputFilename << " to " << OutputFilename;
 
-	ifstream infile(InputFilename.c_str(), ios::binary); // always open your files in binary mode!
+	ifstream infile(InputFilename.c_str(), ios::binary);
 
-	// Now the outfile, this can be any outstream, but we'll save to disk first
+
 	ofstream outfile(OutputFilename.c_str(), ios::binary);
 
 	// encrypt it!
@@ -392,12 +393,12 @@ int main (int argc, char * const argv[]) {
 
         //2. DECRYPTION START
 
-	// Now we'll decrypt, but do it to memory so we leave no trace!
+	//
 	cout << "Decrypting file: " << OutputFilename << " to tempfile: " << TempFile;
 
 	stringstream outBuffer;
 	ifstream encfile(OutputFilename.c_str(), ios::binary);
-	// infile.open(InputFilename.c_str(), ios::binary); // BACKUP Open file for input
+	// infile.open(InputFilename.c_str(), ios::binary); //
 
 	// Decrypt it!
 	BasicCryptoPPWrap::DecryptFileAES(encfile, outBuffer, key2, Iv2,  err, errMsg);
@@ -406,11 +407,11 @@ int main (int argc, char * const argv[]) {
 		return -1;
 	}
 
-	// close and delete the encrypted file (you don't want me leaving files all over your hard drive do you?)
-	encfile.close();
-	// remove("SuperSecretSteakRecipe.crypt");
 
-	// Now look at our buffer
+	encfile.close();
+
+
+
 
 	ofstream resultatet(TempFile.c_str(), ios::binary);
 
