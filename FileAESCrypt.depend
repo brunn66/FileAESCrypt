@@ -1,0 +1,30 @@
+# depslib dependency file v1.0
+1434124327 source:c:\users\sbdanbru\prog\fileaescrypt\fileaescrypt.cpp
+	<iostream>
+	<fstream>
+	"BasicCryptoPPWrap.h"
+	<string>
+	<sstream>
+	<stdio.h>
+	<streambuf>
+	"version.h"
+	<sys/stat.h>
+
+1433780506 c:\users\sbdanbru\prog\fileaescrypt\basiccryptoppwrap.h
+	<iostream>
+	<string>
+	<cstdio>
+	"config.h"
+	"hex.h"
+	"files.h"
+	"cryptlib.h"
+	"modes.h"
+	"osrng.h"
+	"filters.h"
+	"aes.h"
+
+1433968449 c:\users\sbdanbru\prog\fileaescrypt\version.h
+
+1433983881 source:c:\users\sbdanbru\prog\fileaescrypt\fileaescrypt.rc
+	<windows.h>
+
