@@ -44,6 +44,15 @@ win64: FileAESCrypt.cpp
 	x86_64-w64-mingw32-g++ -m64 -static -march=native -O3 -o bin64/win64release/FileAESCrypt64.exe obj/FileAESCryptW64.o obj/windata64.o ./lib64/win64release/libcryptopp.a -mwindows -mconsole
 	mingw-strip bin64/win64release/FileAESCrypt64.exe
 	
+## Windows 64-bit Release (AMD A8)
+win64-a8: FileAESCrypt.cpp
+##      Special AMD A8
+	x86_64-w64-mingw32-windres -o obj/wina8r.o FileAESCrypt.rc
+	x86_64-w64-mingw32-g++ -static -O3 -Wall -march=amdfam10 -mtune=amdfam10 -mcx16 -mpopcnt -pipe -c -g -I . FileAESCrypt.cpp -o obj/wina8.o -mwindows -mconsole
+	x86_64-w64-mingw32-g++ -static -O3 -Wall -march=amdfam10 -mtune=amdfam10 -mcx16 -mpopcnt -pipe -o bin64/win64release/FileAESCrypt-a8.exe obj/wina8.o obj/wina8r.o ./lib64/win64release/libcryptopp-a8.a -mwindows -mconsole
+	mingw-strip bin64/win64release/FileAESCrypt-a8.exe
+
+
 ## Windows 64-bit Release (Haswell)
 haswell: FileAESCrypt.cpp
 ##	Special för XEON 1220 v3 Haswell
