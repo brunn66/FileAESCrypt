@@ -1,1 +1,9 @@
 Building on linux
+= Build prerequisites =
+x86 or x86_64 Linux based OS (any distro and/or architecture capable of building crypto++ should work)
+Crypto++ development(header)-files
+Crypto++ libraries (static linking is strongly recommended)
+
+= Building =
+make linux32-dbg linux32 linux64-dbg linux64
+will build all (dbg,rel,32,64) linux binaries, simply remove those targets you dont want.
