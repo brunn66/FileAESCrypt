@@ -17,13 +17,13 @@ using namespace std;
 void ShowAbout () {
     // Print Version Info
     cout << "========================================================================\n";
-    cout << "FileAESCrypt Win32 " << AutoVersion::FULLVERSION_STRING<< " " << AutoVersion::STATUS<< " Build " <<
+    cout << "FileAESCrypt Linux x86_64 " << AutoVersion::FULLVERSION_STRING<< " " << AutoVersion::STATUS<< " Build " <<
     AutoVersion::BUILD<< " (" << AutoVersion::YEAR<< "-" << AutoVersion::MONTH<< "-" << AutoVersion::DATE<< ")" << "\n";
     cout << "Deleted." << endl;
 
     // Print License info
     cout <<"========================================================================\n" <<
-    "This program utilizes the following libraries:\n\n   --- Crypto++ 5.62 (Static) - Copyright (c) 1995-2013 by Wei Dai\n"<<
+    "This program utilizes the following libraries:\n\n   --- Crypto++ 5.63 - Copyright (c) 1995-2013 by Wei Dai\n"<<
     "   --- BasicCryptoPPWrap (Static) - By Michael R. Rich, 2009\n========================================================================"<<
     endl<<endl;
 }

@@ -58,14 +58,14 @@
 #include <iostream>
 #include <string>
 #include <cstdio>
-#include "config.h"
-#include "hex.h"
-#include "files.h"
-#include "cryptlib.h"
-#include "modes.h"
-#include "osrng.h"
-#include "filters.h"
-#include "aes.h"
+#include "cryptopp/config.h"
+#include "cryptopp/hex.h"
+#include "cryptopp/files.h"
+#include "cryptopp/cryptlib.h"
+#include "cryptopp/modes.h"
+#include "cryptopp/osrng.h"
+#include "cryptopp/filters.h"
+#include "cryptopp/aes.h"
 
 using namespace std;
 using namespace CryptoPP;
