@@ -1,7 +1,0 @@
-Building on linux for windows target (Cross-compile)
-= Build prerequisites = 
-x86 or x86_64 Linux based OS (any distro and/or architecture capable of building crypto++ should work) 
-Crypto++ development(header)-files Crypto++ libraries (static linking is strongly recommended) 
-Compitable cross-compiler, Mingw-W64 is recommended. Use Mingw for 32-bit targets.
-= Building = make all 
-Is the simpliest option, it will build for all supported targets (Win,Linux,32,64,etc)

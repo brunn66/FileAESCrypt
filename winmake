@@ -1,7 +1,0 @@
-all: win
-## win
-win: FileAESCrypt.cpp
-	windres -o obj/windata.o FileAESCrypt.rc
-	g++ -static -c -g -march=native -O3 -I . FileAESCrypt.cpp -o obj/FileAESCrypt.o
-	g++ -static -march=native -O3 -o bin/FileAESCrypt.exe obj/FileAESCrypt.o obj/windata.o ./lib/win/libcryptopp.a -mwindows -mconsole
-	strip bin/FileAESCrypt.exe

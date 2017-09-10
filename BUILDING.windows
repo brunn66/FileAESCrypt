@@ -1,3 +1,0 @@
-Building on windows
-
-any c++ compiler capable of building crypto++ will probably be able to compile the project. Mingw64 Has been confirmed to work in native win7 environment. Cygwin was also used with Code::Blocks for the first test builds. See attached .cbp-file.
