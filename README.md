@@ -5,7 +5,7 @@
 # Confirmed working: RHEL7 Centos7
 #
 # Dependencies: (Possibly Incomplete)
-# -CryptoPP (5.6.3)
+# -CryptoPP (5.6.5)
 # -BasicCryptoWrap (Michael R. Rich)
 #
 # Binaries compiled using ICC in this experimental branch
