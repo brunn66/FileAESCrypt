@@ -8,4 +8,4 @@
 # -CryptoPP (5.6.5)
 # -BasicCryptoWrap (Michael R. Rich)
 #
-# Binaries compiled using ICC in this experimental branch
+#
