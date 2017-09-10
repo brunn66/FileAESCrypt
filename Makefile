@@ -6,8 +6,9 @@ linux-dbg: FileAESCrypt.cpp
 ## Experimental Linux Release (Highly optimized, add -xXXX for further optimization)
 linux: FileAESCrypt.cpp
 	icpc -O3 -ipo -I . FileAESCrypt.cpp ./lib64/libcryptopp.a -o bin64/FileAESCrypt64.bin
+	strip bin64/FileAESCrypt64.bin
 
-	
+#### UNUSED BELOW	
 	
 ## Linux32 Debug
 linux32-dbg: FileAESCrypt.cpp
