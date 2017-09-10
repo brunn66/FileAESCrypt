@@ -2,7 +2,7 @@ all: linux-dbg linux
 
 ## Experimental Linux Debug 
 linux-dbg: FileAESCrypt.cpp
-	icpc -DNDEBUG -g2 -O2 -I . FileAESCrypt.cpp ./lib64/debug/libcryptopp.a -o bin64/debug/FileAESCrypt64-dbg.bin
+	icpc -DNDEBUG -g2 -O2 -I . FileAESCrypt.cpp ./lib64/libcryptopp.a -o bin64/debug/FileAESCrypt64-dbg.bin
 ## Experimental Linux Release (Highly optimized, add -xXXX for further optimization)
 linux: FileAESCrypt.cpp
 	icpc -O3 -ipo -I . FileAESCrypt.cpp ./lib64/libcryptopp.a -o bin64/FileAESCrypt64.bin
