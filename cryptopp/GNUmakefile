@@ -3,8 +3,9 @@
 ###########################################################
 
 ## MOD by FileAEScrypt
-CC=icc
-CXX=icpc
+#CC=icc
+#CXX=icpc
+###
 
 # Must use Bash
 SHELL = bash
