@@ -1,36 +1,5 @@
-17 June 2015
-   released FileAESCrypt (Win32) 0.9.103b (Beta Build 15)
-
-     Change log:
-        -Cleaned: Comments
-
-10 June 2015
-   released FileAESCrypt (Win32) 0.9.95b (Beta Build 14)
-
-     Change log:
-        -Cleaned: Entire code
-        -Removed: Version and license info from runtime
-        -Added: Flag s for versioninfo and license
-
-10 June 2015
-   released FileAESCrypt (Win32) 0.1.81a (Alpha Build 12)
-
-     Change log:
-        -Added: Support for manual IV entry
-
-09 June 2015
-   released FileAESCrypt (Win32) 0.1.75a (Alpha Build 11)
-
-     Change log:
-        -Removed: Hash-Verify implement
-        -Fixed: -d and -e is working.
-
-09 June 2015
-   released FileAESCrypt (Win32) 0.1.70a (Alpha Build 10)
-
-     Change log:
-        -Added: Command-line syntax operation
-        -Cleaned: Versioninfo
-
-
+10 Sep
+-	Branched to exp-
+-	Only build target is Linux x86_64
+-	experimental branch uses Intel C++ Compiler instead of GCC
 

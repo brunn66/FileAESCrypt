@@ -1,5 +1,14 @@
-all: linux32-dbg linux32 linux64-dbg linux64 win32-dbg win32 win64-dbg win64 haswell
+all: linux-dbg linux
 
+## Experimental Linux Debug 
+linux-dbg: FileAESCrypt.cpp
+	icpc -DNDEBUG -g2 -O2 -I . FileAESCrypt.cpp ./lib64/debug/libcryptopp.a -o bin64/debug/FileAESCrypt64-dbg.bin
+## Experimental Linux Release (Highly optimized, add -xXXX for further optimization)
+linux: FileAESCrypt.cpp
+	icpc -O3 -ipo -I . FileAESCrypt.cpp ./lib64/libcryptopp.a -o bin64/FileAESCrypt64.bin
+
+	
+	
 ## Linux32 Debug
 linux32-dbg: FileAESCrypt.cpp
 	g++ -m32 -DNDEBUG -g2 -O2 -I . FileAESCrypt.cpp ./lib/debug/libcryptopp.a -o bin/debug/FileAESCrypt-dbg.bin
