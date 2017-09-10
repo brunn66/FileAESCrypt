@@ -23,7 +23,7 @@ void ShowAbout () {
 
     // Print License info
     cout <<"========================================================================\n" <<
-    "This program utilizes the following libraries:\n\n   --- Crypto++ 5.63 - Copyright (c) 1995-2013 by Wei Dai\n"<<
+    "This program utilizes the following libraries:\n\n   --- Crypto++ 5.65 - Copyright (c) 1995-2013 by Wei Dai\n"<<
     "   --- BasicCryptoPPWrap (Static) - By Michael R. Rich, 2009\n========================================================================"<<
     endl<<endl;
 }
